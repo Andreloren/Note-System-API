@@ -1,5 +1,12 @@
-import express, { Request, Response } from "express";
+import express, { Express } from "express";
 import cors from "cors";
-import { v4 as uuid } from "uuid";
-
+import { router } from "./routes/routes";
 import "dotenv/config";
+
+const api: Express = express();
+
+const port = process.env.PORT;
+
+api.use(express.json(), cors(), router);
+
+api.listen(port, () => console.log(`Servidor OK - http://localhost:${port}`));
