@@ -1,1 +1,2 @@
-export * from "./listarUsuarios";
+export * from "./buscarUsuarios";
+export * from "./buscarUsuario";

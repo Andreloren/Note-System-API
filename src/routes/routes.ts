@@ -1,7 +1,9 @@
 import { Router } from "express";
-import { listarUsuarios } from "../middleware";
+import { buscarUsuario, buscarUsuarios } from "../middleware";
 import funcoes from "../service/funcionalidadeUsuarios";
 
 export const router = Router();
 
-router.get("/usuarios", listarUsuarios, funcoes.buscarUsuarios);
+router.get("/usuarios", buscarUsuarios, funcoes.listarUsuarios);
+
+router.get("/usuarios/:cpf", buscarUsuario, funcoes.listarUsuario);

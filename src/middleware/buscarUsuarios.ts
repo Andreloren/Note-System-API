@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { usuarios } from "../data/user.data";
 import { IRespostaPadrao } from "../interface";
 
-export const listarUsuarios = (
+export const buscarUsuarios = (
   req: Request,
   res: Response,
   next: NextFunction
