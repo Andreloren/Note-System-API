@@ -31,6 +31,28 @@ class FuncionalidadeUsuarios {
       },
     } as IRespostaPadrao);
   }
+
+  criarUsuario(req: Request, res: Response) {
+    const { nome, cpf, email, senha, recados } = req.body;
+
+    usuarios.push({
+      nome,
+      cpf,
+      email,
+      senha,
+      recados,
+    });
+
+    return res.status(201).json({
+      sucess: true,
+      message: "Usuário criado com sucesso!",
+      data: nome,
+      cpf,
+      email,
+      senha,
+      recados,
+    } as IRespostaPadrao);
+  }
 }
 
 const funcoes = new FuncionalidadeUsuarios();
