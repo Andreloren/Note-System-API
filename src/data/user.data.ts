@@ -9,6 +9,7 @@ export let usuarios: Usuario[] = [
     recados: [
       {
         id: "123",
+        status: true,
         descricao: "descrição teste",
         detalhamento: "detalhamento teste",
       },

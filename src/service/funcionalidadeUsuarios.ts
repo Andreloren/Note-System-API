@@ -48,6 +48,7 @@ class FuncionalidadeUsuarios {
 
     const novoRecado: IRecados = {
       id: uuid(),
+      status: true,
       descricao,
       detalhamento,
     };
