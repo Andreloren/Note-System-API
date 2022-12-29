@@ -1,20 +1,14 @@
 import { Request, Response } from "express";
 import { usuarios } from "../data/user.data";
-import { IRespostaPadrao } from "../interface";
+import { IRecados, IRespostaPadrao } from "../interface";
+import { v4 as uuid } from "uuid";
 
 class FuncionalidadeUsuarios {
   listarUsuarios(req: Request, res: Response) {
     res.status(200).json({
       sucess: true,
       message: "Dados encontrados com sucesso",
-      data: usuarios.map((u) => {
-        return {
-          Nome: u.nome,
-          CPF: u.cpf,
-          Email: u.email,
-          Senha: u.senha,
-        };
-      }),
+      data: usuarios,
     } as IRespostaPadrao);
   }
 
@@ -23,12 +17,7 @@ class FuncionalidadeUsuarios {
     res.status(200).json({
       sucess: true,
       message: "Usuário encontrado com sucesso",
-      data: {
-        Nome: usuarioEncontrado.nome,
-        CPF: usuarioEncontrado.cpf,
-        Email: usuarioEncontrado.email,
-        Senha: usuarioEncontrado.senha,
-      },
+      data: usuarioEncontrado,
     } as IRespostaPadrao);
   }
 
@@ -51,6 +40,24 @@ class FuncionalidadeUsuarios {
       email,
       senha,
       recados,
+    } as IRespostaPadrao);
+  }
+
+  criarRecados(req: Request, res: Response) {
+    const { descricao, detalhamento, usuarioEncontrado } = req.body;
+
+    const novoRecado: IRecados = {
+      id: uuid(),
+      descricao,
+      detalhamento,
+    };
+
+    usuarioEncontrado.recados.push(novoRecado);
+
+    return res.status(201).json({
+      sucess: true,
+      message: "Recado criado com sucesso!",
+      dados: novoRecado,
     } as IRespostaPadrao);
   }
 }
