@@ -36,6 +36,15 @@ router.get(
   funcoes.listarRecadoPorId
 );
 
-router.put("usuarios/:cpf/recados/:id");
+router.put(
+  "/usuarios/:cpf/recados/:id",
+  [buscarUsuario, buscarIdRecado, validarRecadoId],
+  funcoes.editarRecado
+);
 
-router.delete("usuarios/:cpf/recados/:id");
+// router.delete("usuarios/:cpf/recados/:id", [
+//   buscarUsuario,
+//   buscarRecados,
+//   buscarIdRecado,
+//   validarRecadoId,
+// ]);

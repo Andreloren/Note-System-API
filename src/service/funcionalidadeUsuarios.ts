@@ -80,6 +80,28 @@ class FuncionalidadeUsuarios {
       dados: recadoEncontrado,
     } as IRespostaPadrao);
   }
+
+  editarRecado(req: Request, res: Response) {
+    const { descricao, detalhamento, status, recadoEncontrado } = req.body;
+
+    if (!descricao && !detalhamento && !status) return res.status(304).json();
+
+    if (descricao) recadoEncontrado.descricao = descricao;
+    if (detalhamento) recadoEncontrado.detalhamento = detalhamento;
+    if (status) recadoEncontrado.status = status;
+
+    return res.status(200).json({
+      sucess: true,
+      message: "Recado atualizado com sucesso",
+      data: {
+        Status: recadoEncontrado.status,
+        Descrição: recadoEncontrado.descricao,
+        Detalhamento: recadoEncontrado.detalhamento,
+      },
+    } as IRespostaPadrao);
+  }
+
+  deletarRecado(req: Request, res: Response) {}
 }
 
 const funcoes = new FuncionalidadeUsuarios();

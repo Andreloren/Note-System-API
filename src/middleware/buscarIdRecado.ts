@@ -8,7 +8,7 @@ export const buscarIdRecado = (
   const { id } = req.params;
   const { usuarioEncontrado } = req.body;
 
-  let recadoEncontrado = usuarioEncontrado.recados.find(
+  const recadoEncontrado = usuarioEncontrado.recados.find(
     (f: { id: string }) => f.id === id
   );
 
