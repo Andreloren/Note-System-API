@@ -101,7 +101,29 @@ class FuncionalidadeUsuarios {
     } as IRespostaPadrao);
   }
 
-  deletarRecado(req: Request, res: Response) {}
+  deletarRecado(req: Request, res: Response) {
+    const { id } = req.params;
+    const { usuarioEncontrado } = req.body;
+
+    const index = usuarioEncontrado.recados.findIndex(
+      (f: { id: string }) => f.id === id
+    );
+
+    const recadoExcluido = usuarioEncontrado.recados[index];
+
+    usuarioEncontrado.recados.splice(index, 1);
+
+    return res.status(200).json({
+      sucess: true,
+      message: "Recado excluído com sucesso",
+      data: {
+        ID: recadoExcluido.id,
+        Status: recadoExcluido.status,
+        Descrição: recadoExcluido.descricao,
+        Detalhamento: recadoExcluido.detalhamento,
+      },
+    } as IRespostaPadrao);
+  }
 }
 
 const funcoes = new FuncionalidadeUsuarios();

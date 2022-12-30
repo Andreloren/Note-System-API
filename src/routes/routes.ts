@@ -42,9 +42,8 @@ router.put(
   funcoes.editarRecado
 );
 
-// router.delete("usuarios/:cpf/recados/:id", [
-//   buscarUsuario,
-//   buscarRecados,
-//   buscarIdRecado,
-//   validarRecadoId,
-// ]);
+router.delete(
+  "/usuarios/:cpf/recados/:id",
+  [buscarUsuario, buscarIdRecado, validarRecadoId],
+  funcoes.deletarRecado
+);
