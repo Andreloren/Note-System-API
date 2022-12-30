@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-export const buscarRecadoId = (
+export const buscarIdRecado = (
   req: Request,
   res: Response,
   next: NextFunction

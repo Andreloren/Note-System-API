@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import {
-  buscarRecadoId,
+  buscarIdRecado,
   buscarRecados,
   buscarUsuario,
   buscarUsuarios,
@@ -32,7 +32,7 @@ router.get(
 
 router.get(
   "/usuarios/:cpf/recados/:id",
-  [buscarUsuario, buscarRecados, buscarRecadoId, validarRecadoId],
+  [buscarUsuario, buscarRecados, buscarIdRecado, validarRecadoId],
   funcoes.listarRecadoPorId
 );
 
