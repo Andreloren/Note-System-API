@@ -5,3 +5,4 @@ export * from "./validarRecados";
 export * from "./buscarRecados";
 export * from "./buscarIdRecado";
 export * from "./validarRecadoId";
+export * from "./filtroRecados";

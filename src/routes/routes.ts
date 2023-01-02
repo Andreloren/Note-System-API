@@ -4,6 +4,7 @@ import {
   buscarRecados,
   buscarUsuario,
   buscarUsuarios,
+  filtroRecados,
   validarRecadoId,
   validarRecados,
   validarUsuario,
@@ -26,7 +27,7 @@ router.get("/usuarios/:cpf", buscarUsuario, funcoes.listarUsuarioPorCpf);
 
 router.get(
   "/usuarios/:cpf/recados",
-  [buscarUsuario, buscarRecados],
+  [buscarUsuario, filtroRecados, buscarRecados],
   funcoes.listarRecados
 );
 
