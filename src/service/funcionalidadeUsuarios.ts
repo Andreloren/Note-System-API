@@ -108,9 +108,9 @@ class FuncionalidadeUsuarios {
       sucess: true,
       message: "Recado atualizado com sucesso",
       data: {
-        Status: recadoEncontrado.status,
-        Detalhamento: recadoEncontrado.detalhamento,
-        Descrição: recadoEncontrado.descricao,
+        status: recadoEncontrado.status,
+        detalhamento: recadoEncontrado.detalhamento,
+        descricao: recadoEncontrado.descricao,
       },
     } as IRespostaPadrao);
   }
@@ -131,10 +131,10 @@ class FuncionalidadeUsuarios {
       sucess: true,
       message: "Recado excluído com sucesso",
       data: {
-        ID: recadoExcluido.id,
-        Status: recadoExcluido.status,
-        Detalhamento: recadoExcluido.detalhamento,
-        Descrição: recadoExcluido.descricao,
+        id: recadoExcluido.id,
+        status: recadoExcluido.status,
+        detalhamento: recadoExcluido.detalhamento,
+        descricao: recadoExcluido.descricao,
       },
     } as IRespostaPadrao);
   }

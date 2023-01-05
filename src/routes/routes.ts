@@ -39,7 +39,7 @@ router.get(
   funcoes.listarRecadoPorId
 );
 
-router.put("/users/:cpf", buscarUsuario, funcoes.atualizarUsuario);
+router.put("/usuarios/:cpf", buscarUsuario, funcoes.atualizarUsuario);
 
 router.put(
   "/usuarios/:cpf/recados/:id",
