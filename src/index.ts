@@ -9,4 +9,4 @@ const port = process.env.PORT;
 
 api.use(express.json(), cors(), router);
 
-api.listen(port, () => console.log(`Servidor OK - http://localhost:${port}`));
+api.listen(port, () => console.log(`Servidor OK - PORTA: ${port}`));

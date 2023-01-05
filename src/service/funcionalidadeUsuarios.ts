@@ -47,17 +47,19 @@ class FuncionalidadeUsuarios {
 
     const novoRecado: IRecados = {
       id: uuid(),
-      status: true,
-      descricao,
+      status: "ativo",
       detalhamento,
+      descricao,
     };
 
-    usuarioEncontrado.recados.push(novoRecado);
+    if (usuarioEncontrado) {
+      usuarioEncontrado.recados.push(novoRecado);
+    }
 
     return res.status(201).json({
       sucess: true,
       message: "Recado criado com sucesso!",
-      dados: novoRecado,
+      data: novoRecado,
     } as IRespostaPadrao);
   }
 
@@ -67,7 +69,7 @@ class FuncionalidadeUsuarios {
     return res.status(200).json({
       sucess: true,
       message: "Recados do usuário listados com sucesso!",
-      dados: usuarioEncontrado.recados,
+      data: usuarioEncontrado.recados,
     } as IRespostaPadrao);
   }
 
@@ -77,7 +79,19 @@ class FuncionalidadeUsuarios {
     return res.status(200).json({
       sucess: true,
       message: "Recado encontrado com sucesso.",
-      dados: recadoEncontrado,
+      data: recadoEncontrado,
+    } as IRespostaPadrao);
+  }
+
+  atualizarUsuario(req: Request, res: Response) {
+    const { novasInfosUsuario, usuarioEncontrado } = req.body;
+
+    usuarioEncontrado.recados = novasInfosUsuario;
+
+    return res.status(201).json({
+      sucess: true,
+      message: "Recados do usuário atualizado com sucesso",
+      data: usuarioEncontrado,
     } as IRespostaPadrao);
   }
 
@@ -95,8 +109,8 @@ class FuncionalidadeUsuarios {
       message: "Recado atualizado com sucesso",
       data: {
         Status: recadoEncontrado.status,
-        Descrição: recadoEncontrado.descricao,
         Detalhamento: recadoEncontrado.detalhamento,
+        Descrição: recadoEncontrado.descricao,
       },
     } as IRespostaPadrao);
   }
@@ -119,8 +133,8 @@ class FuncionalidadeUsuarios {
       data: {
         ID: recadoExcluido.id,
         Status: recadoExcluido.status,
-        Descrição: recadoExcluido.descricao,
         Detalhamento: recadoExcluido.detalhamento,
+        Descrição: recadoExcluido.descricao,
       },
     } as IRespostaPadrao);
   }

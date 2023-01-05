@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { status } from "../types/tipos";
 
 export const filtroRecados = (
   req: Request,
@@ -13,7 +14,7 @@ export const filtroRecados = (
       sucess: true,
       data: usuarioEncontrado?.recados
         .filter(
-          (f: { descricao: string; detalhamento: string }) =>
+          (f: { descricao: string; detalhamento: string; status: status }) =>
             f.descricao
               .toLowerCase()
               .includes(filter.toString().toLowerCase()) ||
@@ -24,7 +25,7 @@ export const filtroRecados = (
         .map(
           (m: {
             id: string;
-            status: boolean;
+            status: status;
             descricao: string;
             detalhamento: string;
           }) => {

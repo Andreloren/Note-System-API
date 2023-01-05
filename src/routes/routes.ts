@@ -1,4 +1,6 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
+import { usuarios } from "../data/user.data";
+import { IRespostaPadrao } from "../interface";
 import {
   buscarIdRecado,
   buscarRecados,
@@ -36,6 +38,8 @@ router.get(
   [buscarUsuario, buscarRecados, buscarIdRecado, validarRecadoId],
   funcoes.listarRecadoPorId
 );
+
+router.put("/users/:cpf", buscarUsuario, funcoes.atualizarUsuario);
 
 router.put(
   "/usuarios/:cpf/recados/:id",

@@ -1,6 +1,8 @@
+import { status } from "../types/tipos";
+
 export interface IRecados {
   id: string;
-  status: boolean;
+  status: status;
   descricao: string;
   detalhamento: string;
 }
