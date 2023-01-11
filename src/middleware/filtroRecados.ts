@@ -30,10 +30,10 @@ export const filtroRecados = (
             detalhamento: string;
           }) => {
             return {
-              ID: m.id,
-              Status: m.status,
-              Descrição: m.descricao,
-              Detalhamento: m.detalhamento,
+              id: m.id,
+              status: m.status,
+              descricao: m.descricao,
+              detalhamento: m.detalhamento,
             };
           }
         ),
