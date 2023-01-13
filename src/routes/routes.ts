@@ -1,6 +1,5 @@
-import { Request, Response, Router } from "express";
-import { usuarios } from "../data/user.data";
-import { IRespostaPadrao } from "../interface";
+import { Router } from "express";
+
 import {
   buscarIdRecado,
   buscarRecados,
